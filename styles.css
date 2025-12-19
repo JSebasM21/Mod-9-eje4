@@ -1,0 +1,442 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tabs-container {
+    background: rgba(15, 15, 30, 0.85);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(102, 126, 234, 0.1),
+        0 0 30px rgba(102, 126, 234, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+h1 {
+    background: linear-gradient(135deg, #667eea 0%, #ff6b8b 50%, #20c997 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+.subtitle {
+    text-align: center;
+    color: #94a3b8;
+    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Tab Buttons - Estilo mejorado con toque neón */
+.tab-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.tab-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 1.2rem 1.8rem;
+    background: rgba(30, 30, 60, 0.8);
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #94a3b8;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+}
+
+.tab-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s;
+}
+
+.tab-btn:hover::before {
+    left: 100%;
+}
+
+.tab-btn:hover {
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.4),
+        0 0 15px rgba(102, 126, 234, 0.3),
+        inset 0 0 0 1px rgba(102, 126, 234, 0.3);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 15px 35px rgba(102, 126, 234, 0.4),
+        0 0 20px rgba(102, 126, 234, 0.6),
+        0 0 0 1px rgba(102, 126, 234, 0.5);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.tab-btn .icon {
+    font-size: 1.4rem;
+    transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.tab-btn.active .icon {
+    transform: scale(1.2);
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Tab Content */
+.tab-contents {
+    position: relative;
+    min-height: 450px;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tab-content p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+/* Features Grid - Mejorado con efecto neón */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: rgba(30, 30, 60, 0.6);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(102, 126, 234, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.feature:hover {
+    transform: translateY(-8px) scale(1.02);
+    background: rgba(40, 40, 80, 0.7);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(102, 126, 234, 0.2),
+        inset 0 0 0 1px rgba(102, 126, 234, 0.3);
+}
+
+.feature-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    transition: text-shadow 0.3s;
+}
+
+.feature:hover .feature-icon {
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+}
+
+.feature h3 {
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.feature p {
+    color: #94a3b8;
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Service List - Con efecto neón en los checkmarks */
+.service-list {
+    list-style: none;
+    margin: 2.5rem 0;
+}
+
+.service-list li {
+    padding: 1.3rem 2rem;
+    margin-bottom: 1rem;
+    background: rgba(30, 30, 60, 0.6);
+    border-radius: 12px;
+    border-left: 5px solid #667eea;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #ffffff;
+    backdrop-filter: blur(5px);
+}
+
+.service-list li:hover {
+    transform: translateX(10px);
+    background: rgba(40, 40, 80, 0.8);
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(102, 126, 234, 0.2);
+    border-left-color: #ff6b8b;
+}
+
+.service-list li::before {
+    content: '✅';
+    font-size: 1.2rem;
+    filter: drop-shadow(0 0 5px rgba(32, 201, 151, 0.5));
+}
+
+/* Stats Grid - Con efecto neón vibrante */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 3rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 30px rgba(102, 126, 234, 0.4),
+        0 0 20px rgba(102, 126, 234, 0.6);
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(to bottom right, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+    transform: rotate(30deg);
+    animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(30deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(30deg); }
+}
+
+.stat-card:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 
+        0 15px 40px rgba(102, 126, 234, 0.6),
+        0 0 30px rgba(102, 126, 234, 0.8);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 2.5rem auto;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: rgba(30, 30, 60, 0.7);
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    backdrop-filter: blur(5px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #64748b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 
+        0 0 0 3px rgba(102, 126, 234, 0.2),
+        0 0 15px rgba(102, 126, 234, 0.3);
+    background: rgba(40, 40, 80, 0.8);
+}
+
+.cta-btn {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 10px 25px rgba(102, 126, 234, 0.4),
+        0 0 15px rgba(102, 126, 234, 0.3);
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 15px 35px rgba(102, 126, 234, 0.6),
+        0 0 25px rgba(102, 126, 234, 0.5);
+    letter-spacing: 2px;
+}
+
+.keyboard-hint {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(30, 30, 60, 0.7);
+    border-radius: 12px;
+    color: #94a3b8;
+    font-size: 1rem;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabs-container {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .tab-btn {
+        min-width: 100%;
+        padding: 1rem;
+    }
+    
+    .features,
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .feature,
+    .stat-card {
+        padding: 2rem 1.5rem;
+    }
+}
